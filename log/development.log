@@ -177,3 +177,701 @@ Migrating to AddRememberTokenToUsers (20190805221023)
   ↳ /home/eapen/.rbenv/versions/2.6.3/bin/rake:23
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /home/eapen/.rbenv/versions/2.6.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (3.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "remember_token") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "foobar1"], ["email", "foo1@bar.com"], ["password_digest", "$2a$12$v/zKhwfIhpB9lZgECAtwUuKKDA6z6RoB2Q9rvC/4Jn0y5t8HHoK/G"], ["created_at", "2019-08-05 22:55:46.136778"], ["updated_at", "2019-08-05 22:55:46.136778"], ["remember_token", "f2fc850d7b730207565a9f1d28fe1580934aace9"]]
+  [1m[35m (13.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "remember_token") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "foobar2"], ["email", "foo2@bar.com"], ["password_digest", "$2a$12$rFaRWdjoqJjt8Ulg/RHWiuV9afb/Hot63Da6bQszckhSev/ZMFz1q"], ["created_at", "2019-08-05 22:56:26.071817"], ["updated_at", "2019-08-05 22:56:26.071817"], ["remember_token", "51d7014ad393498f168b8b6da6c76fb871c877b4"]]
+  [1m[35m (9.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "remember_token") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "foobar3"], ["email", "foo3@bar.com"], ["password_digest", "$2a$12$KSEqH.pmAlfiH3mQn0fcv.dUk/s2i6U2YArYWGo73t6HLSCIL49qy"], ["created_at", "2019-08-05 22:56:48.738432"], ["updated_at", "2019-08-05 22:56:48.738432"], ["remember_token", "81892c1d354ac6df1ec7afe73f9db51ead46df71"]]
+  [1m[35m (17.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/signin" for 127.0.0.1 at 2019-08-06 01:08:06 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/eapen/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 439ms (Views: 426.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:08:30 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7whIeist9ihmb+mkPsao0T0TYJubQUyIxFIJz5gwMjU+WAHqy7Sl/a4n6eW3D4t2IFXpXEoXw0//YDpkFH+DIQ==", "session"=>{"email"=>"foo3@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo3@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 1.1ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/sessions_controller.rb:7:in `create'
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:15:10 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7whIeist9ihmb+mkPsao0T0TYJubQUyIxFIJz5gwMjU+WAHqy7Sl/a4n6eW3D4t2IFXpXEoXw0//YDpkFH+DIQ==", "session"=>{"email"=>"foo3@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo3@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.9ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/sessions_controller.rb:7:in `create'
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:15:17 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7whIeist9ihmb+mkPsao0T0TYJubQUyIxFIJz5gwMjU+WAHqy7Sl/a4n6eW3D4t2IFXpXEoXw0//YDpkFH+DIQ==", "session"=>{"email"=>"foo3@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo3@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/sessions_controller.rb:7:in `create'
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:16:19 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7whIeist9ihmb+mkPsao0T0TYJubQUyIxFIJz5gwMjU+WAHqy7Sl/a4n6eW3D4t2IFXpXEoXw0//YDpkFH+DIQ==", "session"=>{"email"=>"foo3@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo3@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "ded2a61935dd038e4fb6b877e68372c7a8146b36"], ["updated_at", "2019-08-05 23:16:20.105543"], ["id", 5]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[35m (16.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 500 Internal Server Error in 367ms (ActiveRecord: 18.6ms)
+
+
+  
+NoMethodError (undefined method `current_user=' for #<SessionsController:0x00007f62c45fda88>):
+  
+app/helpers/sessions_helper.rb:6:in `sign_in'
+app/controllers/sessions_controller.rb:9:in `create'
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:18:10 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7whIeist9ihmb+mkPsao0T0TYJubQUyIxFIJz5gwMjU+WAHqy7Sl/a4n6eW3D4t2IFXpXEoXw0//YDpkFH+DIQ==", "session"=>{"email"=>"foo3@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo3@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Update (1.4ms)[0m  [1m[33mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "9909e9203fb800b19aae07e7874ada0ac14cc7f6"], ["updated_at", "2019-08-05 23:18:11.072517"], ["id", 5]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[35m (13.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 500 Internal Server Error in 505ms (ActiveRecord: 15.9ms)
+
+
+  
+NameError (undefined local variable or method `root_path' for #<SessionsController:0x00007f62c42edbb8>):
+  
+app/controllers/sessions_controller.rb:10:in `create'
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:19:46 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7whIeist9ihmb+mkPsao0T0TYJubQUyIxFIJz5gwMjU+WAHqy7Sl/a4n6eW3D4t2IFXpXEoXw0//YDpkFH+DIQ==", "session"=>{"email"=>"foo3@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo3@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "8b6343d0f1beb501c3dd3e69ad9dc2a456eae0f2"], ["updated_at", "2019-08-05 23:19:46.648968"], ["id", 5]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[35m (15.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+No template found for SessionsController#create, rendering head :no_content
+Completed 204 No Content in 278ms (ActiveRecord: 16.3ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2019-08-06 01:20:27 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 26ms (Views: 24.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:20:33 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qNu0VVWxG5kl09accBr/w4jvifOerxHfdz4QnyUc2Ot5i/3FtShITO2b1t3509xklakANE/5nhhMDCM0qVNp/w==", "session"=>{"email"=>"foo3@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo3@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "51f6ead941f41aabb418fb4ed08b939da04afd62"], ["updated_at", "2019-08-05 23:20:33.372033"], ["id", 5]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[35m (23.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 500 Internal Server Error in 649ms (ActiveRecord: 25.7ms)
+
+
+  
+NameError (undefined local variable or method `root_path' for #<SessionsController:0x00007f62c48c1f30>):
+  
+app/controllers/sessions_controller.rb:10:in `create'
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:24:15 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qNu0VVWxG5kl09accBr/w4jvifOerxHfdz4QnyUc2Ot5i/3FtShITO2b1t3509xklakANE/5nhhMDCM0qVNp/w==", "session"=>{"email"=>"foo3@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo3@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "1718379c48a75c8837d509264ffe72f264836877"], ["updated_at", "2019-08-05 23:24:15.439949"], ["id", 5]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[35m (11.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+Redirected to http://localhost:3000/
+Completed 302 Found in 272ms (ActiveRecord: 15.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-06 01:24:17 +0200
+  
+ActionController::RoutingError (uninitialized constant StaticController):
+  
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:79:in `block in load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:79:in `rescue in load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:58:in `load_missing_constant'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-08-06 01:24:47 +0200
+  
+ArgumentError ('' is not a supported controller name. This can lead to potential routing problems. See http://guides.rubyonrails.org/routing.html#specifying-a-controller-to-use):
+  
+config/routes.rb:3:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2019-08-06 01:41:57 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/eapen/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 434ms (Views: 424.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign-in" for 127.0.0.1 at 2019-08-06 01:42:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/sign-in"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/signin" for 127.0.0.1 at 2019-08-06 01:42:11 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 41ms (Views: 40.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:42:18 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UpLw4MmY6XSLKo7VPAsBL7znUH7cSmpfsfjzxLdvno6DwrlwKQG6oUNijpS1wiKIoaHZuQ0c5ZiKysBvOyAvmg==", "session"=>{"email"=>"foo3@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo3@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Update (1.5ms)[0m  [1m[33mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "5156cdcc296c7fef802f6aaddfe50ab23f2fddaa"], ["updated_at", "2019-08-05 23:42:18.297060"], ["id", 5]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[35m (21.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+Redirected to http://localhost:3000/
+Completed 302 Found in 270ms (ActiveRecord: 24.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-06 01:42:18 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 24ms (Views: 23.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signin." for 127.0.0.1 at 2019-08-06 01:43:55 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/signin."):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/signin" for 127.0.0.1 at 2019-08-06 01:43:58 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 30ms (Views: 29.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:44:05 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1OXjsDPAGB5njUtt45u+0H/5QpHlbsZNOoR0LD3Nun8Ftaog01lLy6/FSyxqUp13Yr/LVjQ4SYoBtkeHsYILaw==", "session"=>{"email"=>"foo3@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo3@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "309dc83f5d462da567005627e7ccd84865afe755"], ["updated_at", "2019-08-05 23:44:05.810698"], ["id", 5]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[35m (19.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+Redirected to http://localhost:3000/
+Completed 302 Found in 280ms (ActiveRecord: 20.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-06 01:44:05 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2019-08-06 01:44:22 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 78ms (Views: 76.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:44:28 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AG+Y8TcdAG0MwVh4lGfT++DPGAaMQNc61+6SxgcWdqjRP9Fh14RTuMSJWDkdrvBc/YmRwV0WWP3s3KFti1nHvA==", "session"=>{"email"=>"foo3@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo3@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 327ms (Views: 51.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:44:38 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uSJb8WPPUP8f3KAme7gksf6V4twfu+zqrjJZLr+sAdRochJhg1YDKteUoGfycQcW49NrG87tYy2VAGqFM+OwwA==", "session"=>{"email"=>"sf@df", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sf@df"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 70ms (Views: 67.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:44:50 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3wI3zUrTpVL9uBWAk3oGeapHaLkBGByS6f5cpvj8c3oOUn5dqkr2hzXwFcEasyXetwHhftBOk1XSzG8NdLPCbg==", "session"=>{"email"=>"gfdfrgfds@dfsf.g", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gfdfrgfds@dfsf.g"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 39ms (Views: 37.5ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:45:05 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"02lXakIg66X4x/x1dBsaU9jFRVeW5LtDAOfJXLlZxDMCOR76orm4cDCP/DT90jn0xYPMkEeyNIQ71fr3NRZ1Jw==", "session"=>{"email"=>"fh@gdfg.fh", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fh@gdfg.fh"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:45:55 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+abrAV27zOJbG+M/8brYob4AsxLTiz3CzJn9qVFsEV4o9qKRvSKfN5NT4354c/sGo0Y61QLdsgX3q84C3SOgSg==", "session"=>{"email"=>"gfdfrgfds@dfsf.g", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gfdfrgfds@dfsf.g"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 58ms (Views: 48.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2019-08-06 01:47:38 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 81ms (Views: 76.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:48:03 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rBRfHbz8L2GIuJcBE6taYm4EKmFk8CwEDCDbjH7r9uZ9RBaNXGV8tEDwl0CaYnnFc0KjprWmo8M3Eugn8qRH8g==", "session"=>{"email"=>"fdsf@dsd", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fdsf@dsd"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 59ms (Views: 55.5ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:48:06 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/0ClvIQ9IEUEY7O4/wI7w6CSHZ3oHIJPfkb6n9TSgCcuEOwsZKRzkMwrs/l2yxhkvdSUWjlKDYhFdMk0WJ0xMw==", "session"=>{"email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 31ms (Views: 30.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:48:06 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L95hhbk1C8lQ6rpb9ft44ztEj8QbauIqSastnE93Ulb+jigVWaxYHJiiuhp8MltEJgIGA8o8be1ymR43wzjjQg==", "session"=>{"email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 68ms (Views: 66.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/sessions" for 127.0.0.1 at 2019-08-06 01:48:38 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/eapen/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/sessions"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/signin" for 127.0.0.1 at 2019-08-06 01:48:46 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 321ms (Views: 319.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:48:52 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6pmJ1y52g/QjuJ+gCKkjSTORJtma6mW7z7i5cLxQuZI7ycBHzu/QIevwn+GBYADuLtevHku86nz0iorbMB8Ihg==", "session"=>{"email"=>"foo3@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo3@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 343ms (Views: 41.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:51:56 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f3HOsA2viyVDpubPrTWbAaEHSicNRPt017XUW9skue+uIYcg7TbY8Ivu5o4k/LimvEHD4NwSdLPsh+fwV2sI+w==", "session"=>{"email"=>"foo4@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo4@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 35ms (Views: 31.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:51:58 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"86p8htNdmXQvwf4DOyuuthKR2puWg5DNQGqZPdB8J6Ai+jUWM8TKoeeJ/kKy4o0RD9dTXEfVHwp7WKqWXDOWtA==", "session"=>{"email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 35ms (Views: 33.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:51:59 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EPvAuM3b4gqVp7GYC1NSp4pcWF11hKO5y3/RL6KZ0w/Bq4koLUKx313vsdmCmnEAlxrRmqTSLH7wTeKELtZiGw==", "session"=>{"email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 37ms (Views: 33.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:52:00 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vCKU8NeFJYpxO6VXj3WarlfhwIP5JKidx3Dlfg704ZRtct1gNxx2X7lzpRYGvLkJSqdJRChyJ1r8QtbVgrtQgA==", "session"=>{"email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 63ms (Views: 57.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:52:01 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lqER39p9JtnoPkXtEHqvKiyUiZP8IdVvSxp5m1+CwZdH8VhPOuR1DCB2RayZs4yNMdIAVC13WqhwKEow081wgw==", "session"=>{"email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 48ms (Views: 46.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:52:01 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0SXinKBYZedTzE84w8W6HUMfIDfCwfPOvyaDE+KMlcQAdasMQME2MpuET3lKDJm6Xlmp8BOXfAmEFLC4bsMk0A==", "session"=>{"email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 45ms (Views: 42.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:52:02 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wiWy2Ga3I0pOUNRFg2tXXUY9uYs73VESsPyASx8aPrUTdftIhi5wn4YY1AQKonT6W3swTOqL3tWLzrPgk1WPoQ==", "session"=>{"email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 68ms (Views: 67.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:52:03 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/CQqHVbWqAhX4C2lQR1mqbVXKFoyflE1LTS+kJCzDKUtdGONtk/73Z+oLeTI1EUOqBGhneMo3vIWBo07HPy9sQ==", "session"=>{"email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 41ms (Views: 39.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:52:04 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h2Ud5FrrF2uulTdIn8NVqXECMAybHTGppawSYVBZ0cdWNVR0unJEvmbdNwkWCnYObES5y0pLvm6eniHK3BZg0w==", "session"=>{"email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (50.1ms)
+Completed 200 OK in 117ms (Views: 115.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:52:04 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2cZfKj+bJA5jYuzoUCEPHk+kt0cWwQ+uarJ4RpMn8UgIlha63wJ326sq7KnZ6Cy5UuI+gMeXgGlRgEvtH2hAXA==", "session"=>{"email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 43ms (Views: 41.5ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:52:05 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EqxYywc0eDFuTFiC0FlFbVHLXnoSXsKD1/ZhDIp1RXPD/BFb560r5KYEWMNZkGbKTI3XvcMITUTsxFKnBjr0Zw==", "session"=>{"email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 53ms (Views: 51.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:53:06 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rQEw6/oojWWJL2ckEtb5pTiZwrkGscE3RVNk57OeYUR8UXl7GrHesEFnZ2WbH9oCJd9LftfnTvB+YVdMP9HQUA==", "session"=>{"email"=>"foo3@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo3@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "b753543022505522ad327243949e26a2f1f83e52"], ["updated_at", "2019-08-05 23:53:06.618452"], ["id", 5]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[35m (14.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+Redirected to http://localhost:3000/
+Completed 302 Found in 267ms (ActiveRecord: 16.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-06 01:53:06 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 25ms (Views: 23.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 01:54:04 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rQEw6/oojWWJL2ckEtb5pTiZwrkGscE3RVNk57OeYUR8UXl7GrHesEFnZ2WbH9oCJd9LftfnTvB+YVdMP9HQUA==", "session"=>{"email"=>"foo3@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo3@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 291ms (Views: 30.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/sessions" for 127.0.0.1 at 2019-08-06 01:54:59 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/sessions"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/sessions" for 127.0.0.1 at 2019-08-06 01:55:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/sessions"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
