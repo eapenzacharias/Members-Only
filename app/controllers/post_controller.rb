@@ -1,5 +1,5 @@
 class PostController < ApplicationController
-  before_action :check_signin_status, only: [ :new, :create]
+  before_action :signedin_user, only: [ :new, :create]
 
   def new
     @post = Post.new
@@ -9,7 +9,7 @@ class PostController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       flash[:success] = "Post has been created"
-      redirect_to posts_path
+      redirect_to root_path
     else
       render 'new'
     end
@@ -17,6 +17,12 @@ class PostController < ApplicationController
 
   def index
     @posts = Post.all
+  end
+
+  def signedin_user
+    unless signed_in?
+      redirect_to signin_path
+    end
   end
 
   private
