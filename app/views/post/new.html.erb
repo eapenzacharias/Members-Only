@@ -1,0 +1,21 @@
+<%= provide(:title, "Create post") %>
+<h1>Create Posts</h1>
+<% if @post.errors.full_messages.any? %>
+  <% @post.errors.full_messages.each do |msg| %>
+    <div class="errors"><%= msg %></div>
+  <% end %>
+  <br>
+<% end %>
+
+<%= form_for @post do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <br>
+
+  <%= f.submit "Create Post" %>
+<% end %>

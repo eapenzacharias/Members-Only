@@ -1,0 +1,12 @@
+<%= provide(:title, "All Posts") %>
+<h1>All Posts</h1>
+
+<table>
+  <% @posts.each do |post| %>
+    <div>
+      <h4><%= post.title %><%= "- #{User.find(post.user_id).name}" if logged_in? %></h4>
+      <p><%= post.content %></p>
+    </div>
+
+  <% end %>
+</table>
