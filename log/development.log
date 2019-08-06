@@ -3964,3 +3964,426 @@ Processing by PostController#index as HTML
 Completed 200 OK in 382ms (Views: 378.8ms | ActiveRecord: 1.7ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-08-06 23:08:54 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/eapen/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by PostController#index as HTML
+  Rendering post/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "dd31672e67198fada085cadc1c9e7a47f0292be3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/post/index.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:14
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:14
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:14
+  Rendered post/index.html.erb within layouts/application (37.6ms)
+Completed 200 OK in 317ms (Views: 304.9ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2019-08-06 23:08:58 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Fcxzf1glZE1KAoZCjPKHcXBHSzTdwdOI6ibqvnCE1bgtAD5wX9K8aHWEyF8z0kXHx8/B0FuWeKVgoJrdLsm+Ig=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "dd31672e67198fada085cadc1c9e7a47f0292be3"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/helpers/sessions_helper.rb:19
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "8eefce605670886708b69a12da3ea84a6b97207f"], ["updated_at", "2019-08-06 21:08:58.675800"], ["id", 5]]
+  ↳ app/helpers/sessions_helper.rb:19
+  [1m[35m (14.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/helpers/sessions_helper.rb:19
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms (ActiveRecord: 15.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-06 23:08:58 +0200
+Processing by PostController#index as HTML
+  Rendering post/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/post/index.html.erb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  Rendered post/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 28ms (Views: 26.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2019-08-06 23:09:02 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 43ms (Views: 41.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 23:09:11 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GeKHJmUzQOvYmEQgl3KDFY2KtONSQ/Y6GT+Y/0ufPkCKWNRe5IdlJy9tFbRyrUo7GwJHlxRF6zT8j9F+3O3c3Q==", "session"=>{"email"=>"foo1@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo1@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "a4966bab4926ebe5c2c803a60c82221fde97ee00"], ["updated_at", "2019-08-06 21:09:11.301520"], ["id", 3]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[35m (15.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+Redirected to http://localhost:3000/
+Completed 302 Found in 261ms (ActiveRecord: 16.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-06 23:09:11 +0200
+Processing by PostController#index as HTML
+  Rendering post/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "a4966bab4926ebe5c2c803a60c82221fde97ee00"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/post/index.html.erb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:14
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:14
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:14
+  Rendered post/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 37ms (Views: 35.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-06 23:09:54 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/eapen/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by PostController#index as HTML
+  Rendering post/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "a4966bab4926ebe5c2c803a60c82221fde97ee00"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/post/index.html.erb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  Rendered post/index.html.erb within layouts/application (60.6ms)
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `body' for #<Post:0x00007fc12cb4f9e8>):
+    16:     </p>
+    17:   <% end %>
+    18:   <h4 class="float-left"><%=post.title %></h4>  
+    19:   <p class="clear"><%= post.body %></p>
+    20: <% end %>
+    21: 
+    22: <% if signed_in? %>
+  
+app/views/post/index.html.erb:19:in `block in _app_views_post_index_html_erb__1899255950024582236_70233827014800'
+app/views/post/index.html.erb:11:in `_app_views_post_index_html_erb__1899255950024582236_70233827014800'
+Started GET "/" for 127.0.0.1 at 2019-08-06 23:10:16 +0200
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/eapen/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by PostController#index as HTML
+  Rendering post/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "a4966bab4926ebe5c2c803a60c82221fde97ee00"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/post/index.html.erb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  Rendered post/index.html.erb within layouts/application (50.8ms)
+Completed 200 OK in 388ms (Views: 375.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/post/new" for 127.0.0.1 at 2019-08-06 23:10:25 +0200
+Processing by PostController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "a4966bab4926ebe5c2c803a60c82221fde97ee00"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  Rendering post/new.html.erb within layouts/application
+  Rendered post/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 56ms (Views: 52.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/post/create" for 127.0.0.1 at 2019-08-06 23:10:36 +0200
+Processing by PostController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U9F3Oxpm38qqn/dMMl+kaTvvmjwuEvTDt9g/DLovcLMfZsATkL47Ra3d0dc0aBOU/CEH7fmJ2NC591ZMFV6mpg==", "post"=>{"user_id"=>"3", "title"=>"Test 2", "content"=>"sdhjfjkh dsjkfhsj dsfhjjdh "}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "a4966bab4926ebe5c2c803a60c82221fde97ee00"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/post_controller.rb:10
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/post_controller.rb:10
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Test 2"], ["content", "sdhjfjkh dsjkfhsj dsfhjjdh "], ["created_at", "2019-08-06 21:10:36.619347"], ["updated_at", "2019-08-06 21:10:36.619347"], ["user_id", 3]]
+  ↳ app/controllers/post_controller.rb:10
+  [1m[35m (35.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/post_controller.rb:10
+Redirected to http://localhost:3000/
+Completed 302 Found in 44ms (ActiveRecord: 36.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-06 23:10:36 +0200
+Processing by PostController#index as HTML
+  Rendering post/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "a4966bab4926ebe5c2c803a60c82221fde97ee00"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/post/index.html.erb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  Rendered post/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 43ms (Views: 41.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/post/new" for 127.0.0.1 at 2019-08-06 23:12:56 +0200
+Processing by PostController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "a4966bab4926ebe5c2c803a60c82221fde97ee00"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  Rendering post/new.html.erb within layouts/application
+  Rendered post/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 64ms (Views: 62.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/post/create" for 127.0.0.1 at 2019-08-06 23:13:13 +0200
+Processing by PostController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EMmcryH3OPBJtouaqFUq76b+laFKOiVyuvh9M5XlqWBcfiuHqy/cf070rQGuYp0SYTAIcJ2hCWG01xRzOpR/dQ==", "post"=>{"user_id"=>"3", "title"=>"title5", "content"=>"sgdhg sjas jahsdjh sahduhd sdajuhdjas sadhju"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "a4966bab4926ebe5c2c803a60c82221fde97ee00"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/post_controller.rb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/post_controller.rb:10
+  [1m[36mPost Create (2.0ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "title5"], ["content", "sgdhg sjas jahsdjh sahduhd sdajuhdjas sadhju"], ["created_at", "2019-08-06 21:13:13.108795"], ["updated_at", "2019-08-06 21:13:13.108795"], ["user_id", 3]]
+  ↳ app/controllers/post_controller.rb:10
+  [1m[35m (22.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/post_controller.rb:10
+Redirected to http://localhost:3000/
+Completed 302 Found in 32ms (ActiveRecord: 25.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-06 23:13:13 +0200
+Processing by PostController#index as HTML
+  Rendering post/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "a4966bab4926ebe5c2c803a60c82221fde97ee00"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/post/index.html.erb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  Rendered post/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 79ms (Views: 77.6ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2019-08-06 23:13:15 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FNtDKJtDYVANR/8fpe0Gk5dRAp741E9g8YSu3uTaHhgsFw4nnLS5dTLBsQIazcQlINmIen6D5E17At69upd1gg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "a4966bab4926ebe5c2c803a60c82221fde97ee00"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/helpers/sessions_helper.rb:19
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "db533fcabdd6a2d3c87c082aa602cdb9449f2dd9"], ["updated_at", "2019-08-06 21:13:15.669569"], ["id", 3]]
+  ↳ app/helpers/sessions_helper.rb:19
+  [1m[35m (20.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/helpers/sessions_helper.rb:19
+Redirected to http://localhost:3000/
+Completed 302 Found in 28ms (ActiveRecord: 21.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-06 23:13:15 +0200
+Processing by PostController#index as HTML
+  Rendering post/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/post/index.html.erb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  Rendered post/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-06 23:13:48 +0200
+Processing by PostController#index as HTML
+  Rendering post/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/post/index.html.erb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  Rendered post/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 49ms (Views: 43.6ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2019-08-06 23:14:09 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/eapen/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 367ms (Views: 359.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-08-06 23:14:19 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KrsA4MLTdPrTFUGgGheHvQxASbV0XBOcr1Z3uarzfP+5AVOYQ2dRNiTgEDT/yE6Tmsi6wTJaDpJK5j44PYGeYg==", "session"=>{"email"=>"foo3@bar.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "foo3@bar.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "59fa7289499642af6e30bc8bf35013a61562a98c"], ["updated_at", "2019-08-06 21:14:20.041848"], ["id", 5]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[35m (156.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/helpers/sessions_helper.rb:5
+Redirected to http://localhost:3000/
+Completed 302 Found in 452ms (ActiveRecord: 157.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-06 23:14:20 +0200
+Processing by PostController#index as HTML
+  Rendering post/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "59fa7289499642af6e30bc8bf35013a61562a98c"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/post/index.html.erb:11
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  Rendered post/index.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 55ms (Views: 51.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/post/new" for 127.0.0.1 at 2019-08-06 23:14:22 +0200
+Processing by PostController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "59fa7289499642af6e30bc8bf35013a61562a98c"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  Rendering post/new.html.erb within layouts/application
+  Rendered post/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 50ms (Views: 47.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/post/create" for 127.0.0.1 at 2019-08-06 23:14:32 +0200
+Processing by PostController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7VMKO7I9d+03CCi770pQC4oHAghvjExmJSkC5HIoq0Kh5L0TOOWTYjBKDiDpfef2Tcmf2bgXYHUrBmuk3Vl9Vw==", "post"=>{"user_id"=>"5", "title"=>"Titlehh", "content"=>"dsbfhjg sdbhujshfd jsduhfj"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "59fa7289499642af6e30bc8bf35013a61562a98c"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/post_controller.rb:10
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/post_controller.rb:10
+  [1m[36mPost Create (1.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Titlehh"], ["content", "dsbfhjg sdbhujshfd jsduhfj"], ["created_at", "2019-08-06 21:14:32.568513"], ["updated_at", "2019-08-06 21:14:32.568513"], ["user_id", 5]]
+  ↳ app/controllers/post_controller.rb:10
+  [1m[35m (15.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/post_controller.rb:10
+Redirected to http://localhost:3000/
+Completed 302 Found in 38ms (ActiveRecord: 17.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-06 23:14:32 +0200
+Processing by PostController#index as HTML
+  Rendering post/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "59fa7289499642af6e30bc8bf35013a61562a98c"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/post/index.html.erb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/post/index.html.erb:15
+  Rendered post/index.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 52ms (Views: 50.2ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2019-08-06 23:15:10 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2QgRio/tUQK+CnjC2RdMbjwis8kpcbKkRQB/aa5U8l3hxFyFiBqJJ4GMNt9mN47Yi6o5La8mGYnPhg8K8BmZxw=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "59fa7289499642af6e30bc8bf35013a61562a98c"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/helpers/sessions_helper.rb:19
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "617f37c741d59e16fe4322a38a15cd23ac704ebc"], ["updated_at", "2019-08-06 21:15:10.696007"], ["id", 5]]
+  ↳ app/helpers/sessions_helper.rb:19
+  [1m[35m (13.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/helpers/sessions_helper.rb:19
+Redirected to http://localhost:3000/
+Completed 302 Found in 20ms (ActiveRecord: 13.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-06 23:15:10 +0200
+Processing by PostController#index as HTML
+  Rendering post/index.html.erb within layouts/application
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/post/index.html.erb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? LIMIT ?[0m  [["remember_token", "da39a3ee5e6b4b0d3255bfef95601890afd80709"], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13
+  Rendered post/index.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 56ms (Views: 51.2ms | ActiveRecord: 3.3ms)
+
+
