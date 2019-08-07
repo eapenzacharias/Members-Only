@@ -13,11 +13,11 @@ Download repository to your local machine, then run
    
     bundle install
 
-#### Testing
+#### Running
 
 Run:
 
-    rails test
+    rails server
 
 #### [Assignment link](https://www.theodinproject.com/courses/ruby-on-rails/lessons/authentication)  
 
