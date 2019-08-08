@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "post#index"
+  root "posts#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :user, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   match '/signin',  to: 'sessions#new', via: 'get'
   delete '/signout', to: 'sessions#destroy'
-  resources :post, only: [:new, :create, :index]
+  resources :posts, only: [:new, :create, :index]
 end
