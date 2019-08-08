@@ -2326,9 +2326,15 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.5ms)
 
 
+<<<<<<< Updated upstream
 Started GET "/" for 127.0.0.1 at 2019-08-06 22:11:27 +0200
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /home/eapen/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+=======
+Started GET "/posts" for ::1 at 2019-08-06 16:18:39 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+>>>>>>> Stashed changes
   
 ActiveRecord::PendingMigrationError (
 
@@ -2371,6 +2377,7 @@ puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
 puma (3.12.1) lib/puma/server.rb:474:in `process_client'
 puma (3.12.1) lib/puma/server.rb:334:in `block in run'
 puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+<<<<<<< Updated upstream
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /home/eapen/.rbenv/versions/2.6.3/bin/rake:23
 Migrating to CreatePosts (20190806184845)
@@ -2895,6 +2902,22 @@ rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
 rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
 actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
 activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+=======
+Started GET "/" for ::1 at 2019-08-06 16:57:22 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.3) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.3) lib/active_record/migration.rb:556:in `call'
+>>>>>>> Stashed changes
 actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
 activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
 actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
@@ -2926,6 +2949,7 @@ puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
 puma (3.12.1) lib/puma/server.rb:474:in `process_client'
 puma (3.12.1) lib/puma/server.rb:334:in `block in run'
 puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+<<<<<<< Updated upstream
 Started GET "/" for 127.0.0.1 at 2019-08-06 22:26:44 +0200
   
 ActionController::RoutingError (uninitialized constant PostsController):
@@ -4387,3 +4411,5 @@ Processing by PostController#index as HTML
 Completed 200 OK in 56ms (Views: 51.2ms | ActiveRecord: 3.3ms)
 
 
+=======
+>>>>>>> Stashed changes
