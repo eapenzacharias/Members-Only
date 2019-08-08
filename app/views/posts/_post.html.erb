@@ -1,0 +1,18 @@
+<div class="col-3 my-2 mx-2">
+  <div class="card" style="width: 18rem;">
+    <%= image_tag 'demo.svg', class: "card-img-top", alt:"Post image" %>
+    <div class="card-body">
+      <h5 class="card-title"><%=post.title%></h5>
+      <% if logged_in?%>
+        <small>by: <%= post.author.name%></small>
+      <%end%>
+      <p class="card-text"><%=truncate(post.content, length:100)%><a href="<%= user_post(post) %>" class="btn btn-link">Read more</a></p>
+      <% if logged_in? && current_user?(post.author) %>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <a href="<%= edit_user_post_path(post.user_id,post.id)%>" class="btn btn-warning"> <i class="fa fa-pencil"></i></a>
+        <a href="<%= user_post(post) %>" data-method="delete" class="btn btn-danger"> <i class="fa fa-trash"></i></a>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

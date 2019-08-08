@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col col-md-offset-3">
+    <%=form_for @user do |f| %>
+      <%= render 'shared/errors'%>
+      <div class="form-group">
+        <%=f.label :name %>
+        <%=f.text_field :name,  class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%=f.label :email %>
+        <%=f.email_field :email,  class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%=f.label :password %>
+        <%=f.password_field :password,  class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%=f.label :password_confirmation %>
+        <%=f.password_field :password_confirmation,  class: "form-control" %>
+      </div>
+      <%=f.submit class: "btn btn-primary w-100"%>
+      <% if current_user %>
+        <%= link_to  "Delete", @user, method: :delete,
+        data: {confirm: "Are you sure?"}, class: "btn btn-danger w-100 mt-2"%>
+      <%end%>
+      <%= link_to  "Cancel", cancel_path, class: "btn btn-success w-100 mt-2" %>
+    <% end %>
+
+  </div>
+</div>

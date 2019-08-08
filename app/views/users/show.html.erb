@@ -1,0 +1,14 @@
+<%provide :title, "User" %>
+<h1><%= @user.name %></h1>
+<% if current_user?(@user)%>
+  <p>
+    <%= link_to "Create Post", new_user_post_path(@user.id), class: "btn btn-primary"%>
+  </p>
+<% end %>
+<div class="row">
+<% (@user.posts.length-1).downto(0) do |i| %>
+
+<% post = @user.posts[i] %>
+  <%= render partial:'posts/post', locals:{post:post}%>
+<% end %>
+</div>

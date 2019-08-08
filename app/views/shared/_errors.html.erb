@@ -1,0 +1,11 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <% errors = @user.errors %>
+    <h4><%= pluralize(errors.count,"error") %> errors prevented the user from being saved:</h4>
+    <ul>
+      <% errors.full_messages.each do |message|%>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

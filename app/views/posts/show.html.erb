@@ -1,0 +1,26 @@
+<%=provide(:title,@post.title)%>
+<h1><%= @post.title %></h1>
+<% if logged_in?%>
+  <p>
+    <small>by: <%= @post.author.name%></small> <br>
+    <small>Created At: <%= @post.post_created %></small>
+  </p>
+  <% if current_user?(@post.author) %>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <a href="<%= edit_user_post_path(@post.user_id,@post.id)%>" class="btn btn-warning"> <i class="fa fa-pencil"></i></a>
+      <a href="<%= user_post(@post) %>" data-method="delete" class="btn btn-danger"> <i class="fa fa-trash"></i></a>
+    </div>
+  <% end %>
+<% end %>
+<div class="row mt-5">
+  <div class="col">
+    <p>
+      <%= @post.content %>
+    </p>
+  </div>
+</div>
+
+<h5>Comments: </h5>
+<%= render partial: "comments/comment", locals: {commentable: @post} %>
+<h6>Add Comment: </h6>
+<%= render partial: "comments/form", locals: {commentable: @post} %>
