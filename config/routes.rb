@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
-  get 'post/new'
-  get 'post/create'
-  get 'post/index'
-  get 'static_pages/home'
-  root "post#index"
+  root "posts#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :user, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
+  get '/signup', to: 'user#new'
+  post '/signup', to: 'user#create'
+
   match '/signin',  to: 'sessions#new', via: 'get'
-  match '/signout', to: 'sessions#destroy', via: 'delete'
-  resources :post, only: [:new, :create, :index]
-  match '/post/new',  to: 'post#new', via: 'post'
-  match '/post/create',  to: 'post#create', via: 'post'
+  delete '/signout', to: 'sessions#destroy'
+  resources :posts, only: [:new, :create, :index]
 end

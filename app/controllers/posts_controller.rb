@@ -1,4 +1,4 @@
-class PostController < ApplicationController
+class PostsController < ApplicationController
   before_action :signedin_user, only: [ :new, :create]
 
   def new
@@ -7,6 +7,7 @@ class PostController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
     if @post.save
       flash[:success] = "Post has been created"
       redirect_to root_path
@@ -28,6 +29,6 @@ class PostController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :user_id)
+    params.require(:post).permit(:title, :content)
   end
 end
