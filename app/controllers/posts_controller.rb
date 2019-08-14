@@ -20,13 +20,13 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  private
+
   def signedin_user
     unless signed_in?
       redirect_to signin_path
     end
   end
-
-  private
 
   def post_params
     params.require(:post).permit(:title, :content)
